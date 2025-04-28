@@ -2,14 +2,16 @@
 
 - PX4 x500_depth modifed (to replace models in PX4-Autopilot/Tools/sitl_gazebo/models/)
     ```bash
-    make px4_sitl gazebo_x500_depth
+    make px4_sitl gz_x500_depth
     ```
 - gz bridge command:
     ```bash
     ros2 run ros_gz_bridge parameter_bridge /camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /camera@sensor_msgs/msg/Image@gz.msgs.Image /depth_camera@sensor_msgs/msg/Image@gz.msgs.Image
     ```
-- LD_PRELOAD=/usr/lib/x86_64-linux-gnu/liboctomap.so ros2 run rviz2 rviz2
-
+- Run Rviz
+    ```bash
+    LD_PRELOAD=/usr/lib/x86_64-linux-gnu/liboctomap.so ros2 run rviz2 rviz2
+    ```
 # Container Structure
 
 The Docker container is configured with the following structure:
@@ -47,23 +49,6 @@ A step by step series of examples that tell you how to get a development environ
 3. Clone the PX4 Firmware with `git clone --single-branch -b release/1.14 git@github.com:PX4/PX4-Autopilot.git --recursive`
 4. Build the docker imagege with `cd docker && docker build -t leo-img -f px4_humble_dockerfile.txt .`
 5. Run the container with `./run_cnt.sh`.
-
-## Running the tests
-
-Explain how to run the automated tests for this system.
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system.
-
-## Built With
-
-* [PX4](https://px4.io/) - The flight stack used
-* [ROS](https://www.ros.org/) - Robot Operating System
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 
